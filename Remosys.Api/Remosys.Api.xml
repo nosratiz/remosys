@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Remosys.Api</name>
+    </assembly>
+    <members>
+        <member name="M:Remosys.Api.Controllers.FileController.Upload(Remosys.Api.Core.Application.Files.Command.CreateFileCommand)">
+            <summary>
+            uploading files
+            </summary>
+            <remarks>
+            
+            Types can be one of this: Avatar, Image, Video, Music, Document, Other
+            count validate with [X-MultiSelect] Header can between 1 to 20
+            
+            </remarks>
+            <param name="createFileCommand"></param>
+            <returns></returns>
+            <response code="200">Get Files list Uploaded</response>
+            <response code="400">If validation failure.</response>
+        </member>
+        <member name="T:Remosys.Api.Middleware.OnExceptionMiddleware">
+            <summary>
+             OnExceptionMiddleware , Produce Custom message during Internal Server Exception
+            </summary>
+        </member>
+        <member name="M:Remosys.Api.Middleware.OnExceptionMiddleware.#ctor(Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="env"></param>
+        </member>
+        <member name="M:Remosys.Api.Middleware.OnExceptionMiddleware.OnException(Microsoft.AspNetCore.Mvc.Filters.ExceptionContext)">
+            <inheritdoc />
+        </member>
+    </members>
+</doc>

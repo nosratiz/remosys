@@ -1,0 +1,43 @@
+version: "3.4"
+
+networks:
+  remo-net:
+    driver: bridge
+
+services:
+  remosys.api:
+    image: ${DOCKER_REGISTRY-}remosysapi
+    build:
+      context: .
+      dockerfile: Remosys.Api/Dockerfile
+    networks:
+      - remo-net
+    ports:
+      - '80:80'
+  mongo-server:
+    image: "mongo:latest"
+    networks:
+      - remo-net
+    ports:
+      - '27017:27017'
+    restart: unless-stopped
+  redis-server:
+    image: "redis"
+    volumes:
+        - /etc/redis/:/data 
+    networks:
+      - remo-net  
+    ports:
+      - '6379:6379'
+    restart: unless-stopped
+  seq3-server:
+    image: 'datalust/seq:latest'
+    networks:
+      - remo-net
+    ports:
+      - '5341:80'
+      - '5342:80'
+      - '5343:80'
+    restart: unless-stopped
+    environment:
+      - ACCEPT_EULA=Y

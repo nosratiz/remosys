@@ -1,0 +1,143 @@
+@baseUrl= https://localhost:5001
+@clientUrl=https://localhost:5002
+
+@accessToken=Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im5pbWFub3NyYXRpOTNAZ21haWwuY29tIiwianRpIjoiYWY4MTQyNmYtNDYzZS00ZDk5LWI5ZTAtY2I5NmE1NzcyYzgwIiwiSWQiOiIxYzIzYzU3NC1iMmVmLTRhYjMtOTYwMy1mNDdlYWFmMTAxYWIiLCJmdWxsTmFtZSI6ItmG24zZhdinINmG2LXYsdiq24wiLCJSb2xlTmFtZSI6IkFkbWluIiwicm9sZSI6IkFkbWluIiwibmJmIjoxNjAxMDE2NjgyLCJleHAiOjE2MDIyMjYyODIsImlhdCI6MTYwMTAxNjY4MiwiaXNzIjoiRGV2VG9vbHMuY29tIiwiYXVkIjoiRGV2VG9vbHMuY29tIn0.NSf43q1hPFWclRuYU8qopsMlYUuS4_XcEAZPec02r4Q
+
+
+POST {{baseUrl}}/account/login
+Content-Type: application/json
+
+{
+  "mobile": "09107602786",
+  "password": "nima1234!"
+}
+
+
+
+###get User List
+GET {{baseUrl}}/Users
+Content-Type: application/json
+Authorization: {{accessToken}}
+
+
+###get profile
+GET {{baseUrl}}/account/profile
+Content-Type: application/json
+Authorization: {{accessToken}}
+
+
+
+###get User List
+GET {{baseUrl}}/Users/1c23c574-b2ef-4ab3-9603-f47eaaf101ab
+Content-Type: application/json
+Authorization: {{accessToken}}
+
+
+###Delete User List
+DELETE  {{baseUrl}}/Users/e9aa265b-cf82-40b5-baad-b0efacbe4c2a
+Content-Type: application/json
+Authorization: {{accessToken}}
+
+
+### create new User
+POST {{baseUrl}}/users
+Content-Type: application/json
+Authorization: {{accessToken}}
+
+{
+  "email": "alirezamokhtari5@yahoo.com",
+  "password": "alirezaMokhzan",
+  "firstName": "alireza",
+  "lastName": "mokhtari",
+  "roleId": "20d5c3bb-1d7c-434c-93bb-4b1c600094d6"
+}
+
+
+###get Role List
+GET {{baseUrl}}/Roles
+Content-Type: application/json
+Authorization: {{accessToken}}
+
+
+
+
+###sent userActivity
+POST {{clientUrl}}/userActivity
+Content-Type: application/json
+Authorization: {{accessToken}}
+
+{
+  "userActivities": [
+    {
+      "applicationName": "visual Studio",
+      "fromDate": "2020-09-02T09:41:31.285Z",
+      "toDate": "2020-09-03T09:41:31.285Z"
+    }
+  ]
+}
+
+###create Plan
+POST {{baseUrl}}/plans
+Content-Type: application/json
+Authorization: {{accessToken}}
+
+{
+  "name": "golden",
+  "price": 1000,
+  "personCount": 10,
+  "month": 6
+}
+
+
+###get Plans List 
+GET {{baseUrl}}/plans
+Content-Type: application/json
+
+
+
+###get plan 
+GET {{baseUrl}}/plans/fc6a0fef-5ccd-4be0-a3c1-d034dcedc5b9
+
+
+
+
+###Get Contracts list
+GET {{baseUrl}}/contracts
+Content-Type: application/json
+Authorization: {{accessToken}}
+
+
+###create Contract 
+POST {{baseUrl}}/contracts
+Content-Type: application/json
+Authorization: {{accessToken}}
+
+{
+  "planId": "0acad168-d429-42b4-869d-0f5f2168c2bb"
+}
+
+
+
+###create Organization
+POST {{baseUrl}}/Organizations
+Content-Type: application/json
+Authorization: {{accessToken}}
+
+{
+  "name": "سپید سیستم",
+  "address": "ظفر خیابان افشار"
+}
+
+
+###Register User 
+POST {{baseUrl}}/account/register
+Content-Type: application/json
+
+{
+  "firstName": "nima",
+  "lastName": "nosrati",
+  "mobile": "09107602786",
+  "nationalCode": "0016057015",
+  "password": "123456"
+}
+
