@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Remosys.Api", "Remosys.Api\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Remosys.Common", "Remosys.Common\Remosys.Common.csproj", "{6E711500-8157-4A20-8131-B7D3C8450DED}"
 EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{58BDAFDA-C55C-44A4-A80B-368D5472A0EF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{6E711500-8157-4A20-8131-B7D3C8450DED}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6E711500-8157-4A20-8131-B7D3C8450DED}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6E711500-8157-4A20-8131-B7D3C8450DED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{58BDAFDA-C55C-44A4-A80B-368D5472A0EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58BDAFDA-C55C-44A4-A80B-368D5472A0EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58BDAFDA-C55C-44A4-A80B-368D5472A0EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{58BDAFDA-C55C-44A4-A80B-368D5472A0EF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

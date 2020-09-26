@@ -1,10 +1,20 @@
-version: "3.4"
+version: '3.4'
 
 networks:
   remo-net:
     driver: bridge
 
 services:
+  mongo-server:
+    image: "mongo:latest"
+    networks:
+      - remo-net
+    ports:
+      - '27017:27017'
+    restart: always
+    volumes:
+      - ${WEBAPP_STORAGE_HOME}/site:/data/db
+      - ./data:/data/db
   remosys.api:
     image: ${DOCKER_REGISTRY-}remosysapi
     build:
@@ -13,14 +23,12 @@ services:
     networks:
       - remo-net
     ports:
-      - '80:80'
-  mongo-server:
-    image: "mongo:latest"
-    networks:
-      - remo-net
-    ports:
-      - '27017:27017'
-    restart: unless-stopped
+      - "8000:80"
+      - "44348:443"
+    links: 
+      - mongo-server
+    depends_on:
+      - 'mongo-server'
   redis-server:
     image: "redis"
     volumes:

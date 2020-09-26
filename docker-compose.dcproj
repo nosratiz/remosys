@@ -3,7 +3,7 @@
   <PropertyGroup Label="Globals">
     <ProjectVersion>2.1</ProjectVersion>
     <DockerTargetOS>Linux</DockerTargetOS>
-    <ProjectGuid>82804faa-27c7-4f9c-b968-1d3f38d166ef</ProjectGuid>
+    <ProjectGuid>58bdafda-c55c-44a4-a80b-368d5472a0ef</ProjectGuid>
     <DockerLaunchAction>LaunchBrowser</DockerLaunchAction>
     <DockerServiceUrl>{Scheme}://localhost:{ServicePort}/swagger</DockerServiceUrl>
     <DockerServiceName>remosys.api</DockerServiceName>
