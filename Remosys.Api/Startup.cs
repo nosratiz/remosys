@@ -117,7 +117,7 @@ namespace Remosys.Api
 
             app.UseRouting();
             app.UseCors("MyPolicy");
-            app.UseHttpsRedirection();
+
             app.UseAccessControlAllowOriginAlways();
             app.UseMiddleware<ApplicationMetaMiddleware>();
             app.UseMiddleware<MembershipMiddleware>();

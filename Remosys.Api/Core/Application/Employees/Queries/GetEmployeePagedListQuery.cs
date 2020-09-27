@@ -40,7 +40,7 @@ namespace Remosys.Api.Core.Application.Employees.Queries
                                                || x.User.LastName.Contains(request.Query)
                                                || x.User.Email.Contains(request.Query));
 
-            var employeeList = _employeeRepository.BrowseAsync(employee, request);
+            var employeeList =await _employeeRepository.BrowseAsync(employee, request);
 
             return _mapper.Map<PagedResult<EmployeeDto>>(employeeList);
         }

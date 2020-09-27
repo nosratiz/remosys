@@ -34,7 +34,7 @@ namespace Remosys.Api.Core.Application.Tools.Queries
             if (!string.IsNullOrWhiteSpace(request.Query))
                 tools = tools.Where(x => x.Name.Contains(request.Query));
 
-            var toolList = _toolRepository.BrowseAsync(tools, request);
+            var toolList =await _toolRepository.BrowseAsync(tools, request);
 
             return _mapper.Map<PagedResult<ToolDto>>(toolList);
         }

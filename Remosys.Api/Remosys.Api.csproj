@@ -35,4 +35,11 @@
   </ItemGroup>
 
 
+  <ItemGroup>
+    <None Update="Remosys.Api.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+
 </Project>
