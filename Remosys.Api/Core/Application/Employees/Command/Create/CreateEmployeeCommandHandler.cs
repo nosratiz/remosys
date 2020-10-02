@@ -12,6 +12,7 @@ using Remosys.Common.Helper.Claims;
 using Remosys.Common.Helper.systemMessage;
 using Remosys.Common.Mongo;
 using Remosys.Common.Result;
+using Remosys.Common.Sms;
 
 namespace Remosys.Api.Core.Application.Employees.Command.Create
 {
@@ -21,16 +22,18 @@ namespace Remosys.Api.Core.Application.Employees.Command.Create
         private readonly IMongoRepository<User> _userRepository;
         private readonly ICurrentUserService _currentUserService;
         private readonly IMongoRepository<Role> _roleRepository;
+        private readonly IPayamakService _payamakService;
         private readonly IMapper _mapper;
 
         public CreateEmployeeCommandHandler(IMongoRepository<Employee> employeeRepository, IMapper mapper,
-            IMongoRepository<User> userRepository, ICurrentUserService currentUserService, IMongoRepository<Role> roleRepository)
+            IMongoRepository<User> userRepository, ICurrentUserService currentUserService, IMongoRepository<Role> roleRepository, IPayamakService payamakService)
         {
             _employeeRepository = employeeRepository;
             _mapper = mapper;
             _userRepository = userRepository;
             _currentUserService = currentUserService;
             _roleRepository = roleRepository;
+            _payamakService = payamakService;
         }
 
         public async Task<Result<EmployeeDto>> Handle(CreateEmployeeCommand request,
@@ -56,12 +59,13 @@ namespace Remosys.Api.Core.Application.Employees.Command.Create
             await _userRepository.AddAsync(user);
 
             #endregion
-
+            await _payamakService.SendInvitation(request.Mobile, currentUser.Organizations.FirstOrDefault()?.Name, "");
 
             var employee = _mapper.Map<Employee>(request);
 
             employee.User = user;
-
+            employee.Organization = currentUser.Organizations.FirstOrDefault();
+        
             await _employeeRepository.AddAsync(employee);
 
             return Result<EmployeeDto>.SuccessFul(_mapper.Map<EmployeeDto>(employee));

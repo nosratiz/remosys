@@ -13,14 +13,15 @@ namespace Remosys.Api.Core.Validator.Users
         private readonly IMongoRepository<User> _userRepository;
         public CreateUserCommandValidator(IMongoRepository<User> userRepository)
         {
+            CascadeMode = CascadeMode.Stop;
             _userRepository = userRepository;
 
             RuleFor(dto => dto.FirstName)
-                .NotEmpty().WithMessage(ResponseMessage.NameIsRequired)
+                .NotEmpty().NotNull().WithMessage(ResponseMessage.NameIsRequired)
                 .MinimumLength(2);
 
             RuleFor(dto => dto.LastName)
-                .NotEmpty().WithMessage(ResponseMessage.LastNameIsRequired)
+                .NotEmpty().NotNull().WithMessage(ResponseMessage.LastNameIsRequired)
                 .MinimumLength(2);
 
             RuleFor(dto => dto.Password)

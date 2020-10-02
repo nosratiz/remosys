@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Threading.Tasks;
+using Confluent.Kafka;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Remosys.Api.Core.Application.Departments.Command.Delete;
+using Remosys.Api.Core.Application.Employees.Command.Activate;
 using Remosys.Api.Core.Application.Employees.Command.Create;
 using Remosys.Api.Core.Application.Employees.Command.Update;
 using Remosys.Api.Core.Application.Employees.Queries;
@@ -68,5 +70,19 @@ namespace Remosys.Api.Controllers
 
             return NoContent();
         }
+
+
+
+        [HttpPut("{id}/activation")]
+        public async Task<IActionResult> ActivateUser(Guid id)
+        {
+            var result = await Mediator.Send(new ActivationEmployeeCommand { EmployeeId = id });
+
+            if (result.Success == false)
+                return result.ApiResult;
+
+            return NoContent();
+        }
+
     }
 }

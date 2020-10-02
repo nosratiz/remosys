@@ -22,19 +22,16 @@ namespace Remosys.Api.Core.Application.Users.Command.CreateUser
         private readonly IMongoRepository<User> _userRepository;
         private readonly IMongoRepository<Role> _roleRepository;
         private readonly ICurrentUserService _currentUserService;
-        private readonly IPayamakService _payamakService;
         private readonly IMapper _mapper;
 
 
         public CreateUserCommandHandler(IMongoRepository<User> userRepository, IMapper mapper,
-            IMongoRepository<Role> roleRepository, ICurrentUserService currentUserService,
-            IPayamakService payamakService)
+            IMongoRepository<Role> roleRepository, ICurrentUserService currentUserService)
         {
             _userRepository = userRepository;
             _mapper = mapper;
             _roleRepository = roleRepository;
             _currentUserService = currentUserService;
-            _payamakService = payamakService;
         }
 
         public async Task<Result<UserDto>> Handle(CreateUserCommand request, CancellationToken cancellationToken)
@@ -54,8 +51,6 @@ namespace Remosys.Api.Core.Application.Users.Command.CreateUser
             user.Organizations = new List<Models.Organization> { currentUser.Organizations.FirstOrDefault() };
 
             await _userRepository.AddAsync(user);
-
-            await _payamakService.SendInvitation(request.Mobile, user.Organizations.FirstOrDefault()?.Name, "");
 
             return Result<UserDto>.SuccessFul(_mapper.Map<UserDto>(user));
         }

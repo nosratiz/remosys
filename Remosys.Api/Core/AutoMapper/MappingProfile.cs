@@ -1,6 +1,9 @@
 ﻿using System;
 using AutoMapper;
 using Remosys.Api.Core.Application.Activity.Dto;
+using Remosys.Api.Core.Application.AgentSetting.Command.Create;
+using Remosys.Api.Core.Application.AgentSetting.Command.Update;
+using Remosys.Api.Core.Application.AgentSetting.Dto;
 using Remosys.Api.Core.Application.Auth.Command.RegisterCommand;
 using Remosys.Api.Core.Application.Contracts.Command.CreateContract;
 using Remosys.Api.Core.Application.Contracts.Command.UpdateContract;
@@ -176,6 +179,22 @@ namespace Remosys.Api.Core.AutoMapper
             CreateMap<CreateDepartmentCommand, Department>().ForMember(x => x.CreateDate, opt => opt.MapFrom(des => DateTime.Now));
 
             CreateMap<UpdateDepartmentCommand, Department>();
+
+            #endregion
+
+
+            #region AgentSetting
+
+            CreateMap<AgentSetting, AgentSettingDto>();
+
+            CreateMap<PagedResult<AgentSetting>, PagedResult<AgentSettingDto>>();
+
+            CreateMap<CreateAgentSettingCommand, AgentSetting>()
+                .ForMember(x => x.CreateDate, opt => opt.MapFrom(des => DateTime.Now));
+
+            CreateMap<UpdateAgentSettingCommand, AgentSetting>();
+
+
 
             #endregion
 

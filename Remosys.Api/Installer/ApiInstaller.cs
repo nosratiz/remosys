@@ -39,9 +39,12 @@ namespace Remosys.Api.Installer
                     });
             });
 
+            services.AddSignalR();
+
             services.AddControllers(opt => opt.Filters.Add<OnExceptionMiddleware>())
                 .AddFluentValidation(mvcConfiguration =>
                     mvcConfiguration.RegisterValidatorsFromAssemblyContaining<Startup>());
+
 
             services.AddSingleton<IRequestMeta, RequestMeta>();
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();

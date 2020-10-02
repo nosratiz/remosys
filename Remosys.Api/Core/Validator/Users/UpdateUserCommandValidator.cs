@@ -13,6 +13,7 @@ namespace Remosys.Api.Core.Validator.Users
         private readonly IMongoRepository<User> _userRepository;
         public UpdateUserCommandValidator(IMongoRepository<User> userRepository)
         {
+            CascadeMode = CascadeMode.Stop;
             _userRepository = userRepository;
 
             RuleFor(dto => dto.Id).NotEmpty();

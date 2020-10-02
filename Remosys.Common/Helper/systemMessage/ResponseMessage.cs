@@ -90,6 +90,14 @@
 
         public static string MaxOrganizationReached = "کاربر بیش از یک سازمان نمی تواند بسازد";
 
+        public static string ActiveEmployeeReach = "تعداد کاربران فعال از پلن قرار دادی شما بیشتر است";
+
+        public static string ExpiredContract = "قرار داد منقضی شده است";
+
+        public static string SettingNotFound = "تنظیمات مورد نظر یافت نشد";
+
+        public static string IdIsRequired = "ای دی ارسال نشده است";
+
 
     }
 }

@@ -37,6 +37,8 @@ namespace Remosys.Api
             services.AddSwaggerDocs(Configuration);
 
             services.AddMongo(Configuration);
+
+            #region Mongo Collection
             services.AddMongoRepository<User>("Users");
             services.AddMongoRepository<Role>("Roles");
             services.AddMongoRepository<UserToken>("UserTokens");
@@ -54,6 +56,11 @@ namespace Remosys.Api
             services.AddMongoRepository<Role>("Roles");
             services.AddMongoRepository<Department>("Department");
             services.AddMongoRepository<Employee>("Employees");
+            services.AddMongoRepository<AgentSetting>("AgentSettings");
+
+
+            #endregion
+
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IApplicationBootstrapper applicationBootstrapper)
@@ -124,9 +131,12 @@ namespace Remosys.Api
 
             app.UseAuthorization();
 
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+               
+                endpoints.MapHub<NotificationHub>("/notificationHub");
             });
 
             app.UseSwaggerDocs();

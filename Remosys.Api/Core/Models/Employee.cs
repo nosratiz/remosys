@@ -13,9 +13,10 @@ namespace Remosys.Api.Core.Models
         public DateTime? StartContract { get; set; }
         public DateTime? EndContract { get; set; }
 
-
+        public bool IsApproved { get; set; }
         public bool IsActive { get; set; }
         public bool IsDeleted { get; set; }
         public virtual User User { get; set; }
+        public virtual Organization Organization { get; set; }
     }
 }

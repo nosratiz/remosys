@@ -2,7 +2,7 @@
 {
     public enum ToolType
     {
-        Development = 1,
-        Office = 2
+        Site = 1,
+        Desktop = 2
     }
 }

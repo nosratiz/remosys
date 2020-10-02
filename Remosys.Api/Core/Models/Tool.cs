@@ -1,4 +1,5 @@
 ﻿using System;
+using Remosys.Common.Enums;
 using Remosys.Common.Types;
 
 namespace Remosys.Api.Core.Models
@@ -8,6 +9,9 @@ namespace Remosys.Api.Core.Models
         public Guid Id { get; set; }
         public string Name { get; set; }
         public string Logo { get; set; }
+        public ToolType ToolType { get; set; }
+        public bool IsActive { get; set; }
+
         public bool IsDeleted { get; set; }
 
         public virtual ToolsCategory ToolsCategory { get; set; }

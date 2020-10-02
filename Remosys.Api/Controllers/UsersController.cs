@@ -10,7 +10,7 @@ using Remosys.Common.Helper.Pagination;
 
 namespace Remosys.Api.Controllers
 {
-    [Authorize(Roles = "Admin,Manager")]
+    [Authorize(Roles = "Admin")]
     public class UsersController : BaseController
     {
 
