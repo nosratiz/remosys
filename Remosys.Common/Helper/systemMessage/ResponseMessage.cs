@@ -98,6 +98,10 @@
 
         public static string IdIsRequired = "ای دی ارسال نشده است";
 
+        public static string TicketNotFound = "تیکت مورد نظر پیدا نشد";
+
+        public static string ContentNotAccess = "شما اجازه دسترسی به این قسمت را ندارید";
+
 
     }
 }

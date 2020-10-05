@@ -9,7 +9,7 @@ using Remosys.Common.Helper.Pagination;
 
 namespace Remosys.Api.Controllers
 {
-    public class AgentController : BaseController
+    public class AgentSettingController : BaseController
     {
 
         [HttpGet]

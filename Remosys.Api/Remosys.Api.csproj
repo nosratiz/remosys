@@ -27,6 +27,7 @@
 
 
   <ItemGroup>
+    <Folder Include="Core\Application\Tickets\Command\UpdateStatus\" />
     <Folder Include="Uploads\Avatar\" />
     <Folder Include="Uploads\Images\" />
     <Folder Include="Uploads\Musics\" />

@@ -36,7 +36,7 @@ namespace Remosys.Api.Core.Application.Tools.Queries
             if (tool is null)
                 return Result<ToolDto>.Failed(new NotFoundObjectResult(new ApiMessage(ResponseMessage.ToolNotFound)));
 
-            return Result<ToolDto>.SuccessFul(_mapper.Map<ToolDto>(tool));
+               return Result<ToolDto>.SuccessFul(_mapper.Map<ToolDto>(tool));
         }
     }
 }

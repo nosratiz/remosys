@@ -22,6 +22,9 @@ using Remosys.Api.Core.Application.Plans.Command.CreatePlan;
 using Remosys.Api.Core.Application.Plans.Command.UpdatePlan;
 using Remosys.Api.Core.Application.Plans.Dto;
 using Remosys.Api.Core.Application.Roles.Dto;
+using Remosys.Api.Core.Application.Tickets.Command.Create;
+using Remosys.Api.Core.Application.Tickets.Command.Reply;
+using Remosys.Api.Core.Application.Tickets.Dto;
 using Remosys.Api.Core.Application.ToolCategories.Command.Create;
 using Remosys.Api.Core.Application.ToolCategories.Command.Update;
 using Remosys.Api.Core.Application.ToolCategories.Dto;
@@ -33,6 +36,7 @@ using Remosys.Api.Core.Application.Users.Command.UpdateProfile;
 using Remosys.Api.Core.Application.Users.Command.UpdateUser;
 using Remosys.Api.Core.Application.Users.Dto;
 using Remosys.Api.Core.Models;
+using Remosys.Common.Enums;
 using Remosys.Common.Helper;
 using Remosys.Common.Types;
 using UserDto = Remosys.Api.Core.Application.Users.Dto.UserDto;
@@ -198,6 +202,23 @@ namespace Remosys.Api.Core.AutoMapper
 
             #endregion
 
+            #region Ticket
+
+            CreateMap<Ticket, TicketDto>();
+
+            CreateMap<PagedResult<Ticket>, PagedResult<TicketListDto>>();
+
+            CreateMap<CreateTicketCommand, Ticket>()
+                .ForMember(x => x.CreateDate, opt => opt.MapFrom(des => DateTime.Now))
+                .ForMember(x => x.ModifiedDate, opt => opt.MapFrom(des => DateTime.Now))
+                .ForMember(x => x.TicketStatus, opt => opt.MapFrom(des => TicketStatus.Open));
+
+
+            CreateMap<ReplyTicketCommand,Ticket>().ForMember(x => x.CreateDate, opt => opt.MapFrom(des => DateTime.Now))
+                .ForMember(x => x.ModifiedDate, opt => opt.MapFrom(des => DateTime.Now))
+                .ForMember(x => x.TicketStatus, opt => opt.MapFrom(des => TicketStatus.Open));
+
+            #endregion
         }
     }
 }

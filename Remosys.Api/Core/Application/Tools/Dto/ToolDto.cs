@@ -9,6 +9,6 @@ namespace Remosys.Api.Core.Application.Tools.Dto
         public string Name { get; set; }
         public string Logo { get; set; }
 
-        public virtual ToolCategoryDto ToolCategory { get; set; }
+        public virtual ToolCategoryDto ToolsCategory { get; set; }
     }
 }

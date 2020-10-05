@@ -141,3 +141,65 @@ Content-Type: application/json
   "password": "123456"
 }
 
+
+
+###get tools
+GET {{baseUrl}}/ToolCategories
+Content-Type: application/json
+Authorization: {{accessToken}}
+
+
+###get tools
+POST  {{baseUrl}}/ToolCategories
+Content-Type: application/json
+Authorization: {{accessToken}}
+
+{
+  "name": "برنامه نویسی"
+}
+
+###get tools
+PUT   {{baseUrl}}/ToolCategories
+Content-Type: application/json
+Authorization: {{accessToken}}
+
+{
+  "id":"85165def-f676-462e-9f0f-e0552996ff38",
+  "name": "2برنامه نویسی"
+}
+
+###get tools
+GET {{baseUrl}}/Tools
+Content-Type: application/json
+Authorization: {{accessToken}}
+
+
+
+### Create Tool 
+POST {{baseUrl}}/tools
+Content-Type: application/json
+Authorization: {{accessToken}}
+
+{
+  "name": "vs Code",
+  "categoryId": "85165def-f676-462e-9f0f-e0552996ff38"
+}
+
+### Create Tool 
+PUT  {{baseUrl}}/tools
+Content-Type: application/json
+Authorization: {{accessToken}}
+
+{
+  "id":"e5ce0968-0ec8-41eb-9987-928131be7e1f",
+  "name": "vs Code2",
+  "categoryId": "85165def-f676-462e-9f0f-e0552996ff38"
+}
+
+
+
+### get tool info
+
+GET {{baseUrl}}/Tools/e5ce0968-0ec8-41eb-9987-928131be7e1f
+Content-Type: application/json
+Authorization: {{accessToken}}

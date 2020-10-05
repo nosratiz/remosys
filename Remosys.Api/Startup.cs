@@ -57,6 +57,7 @@ namespace Remosys.Api
             services.AddMongoRepository<Department>("Department");
             services.AddMongoRepository<Employee>("Employees");
             services.AddMongoRepository<AgentSetting>("AgentSettings");
+            services.AddMongoRepository<Ticket>("Tickets");
 
 
             #endregion
@@ -135,7 +136,7 @@ namespace Remosys.Api
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
-               
+
                 endpoints.MapHub<NotificationHub>("/notificationHub");
             });
 

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using MediatR;
@@ -48,7 +49,8 @@ namespace Remosys.Api.Core.Application.Auth.Command.LoginCommand
             {
                 return Result<TokenDto>.SuccessFul(new TokenDto
                 {
-                    AccessToken = userToken.Token
+                    AccessToken = userToken.Token,
+                    RoleName = user.Roles.FirstOrDefault()?.Name
                 });
             }
 
