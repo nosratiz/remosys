@@ -17,15 +17,13 @@ namespace Remosys.Common.Mongo
         Task<TEntity> GetAsync(Guid id, CancellationToken cancellationToken);
         Task<TEntity> GetAsync(Expression<Func<TEntity, bool>> predicate, CancellationToken cancellationToken);
 
-        Task<IEnumerable<TEntity>> FindAsync(Expression<Func<TEntity, bool>> predicate,
-            CancellationToken cancellationToken);
+        Task<IEnumerable<TEntity>> FindAsync(Expression<Func<TEntity, bool>> predicate, CancellationToken cancellationToken);
 
         Task<PagedResult<TEntity>> BrowseAsync(IQueryable<TEntity> query, PagingOptions pagingOptions);
 
         Task<PagedResult<TEntity>> BrowseAsync(Expression<Func<TEntity, bool>> predicate, PagingOptions pagingOptions);
 
-        Task<PagedResult<TEntity>> BrowseAsync<TQuery>(Expression<Func<TEntity, bool>> predicate, TQuery query)
-            where TQuery : PagedQueryBase;
+        Task<PagedResult<TEntity>> BrowseAsync<TQuery>(Expression<Func<TEntity, bool>> predicate, TQuery query) where TQuery : PagedQueryBase;
 
         Task AddAsync(TEntity entity);
 

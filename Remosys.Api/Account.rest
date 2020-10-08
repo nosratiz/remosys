@@ -182,7 +182,9 @@ Authorization: {{accessToken}}
 
 {
   "name": "vs Code",
-  "categoryId": "85165def-f676-462e-9f0f-e0552996ff38"
+  "categoryId": "85165def-f676-462e-9f0f-e0552996ff38",
+  "ToolType":1,
+  "HarmfulType":1
 }
 
 ### Create Tool 
